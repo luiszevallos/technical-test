@@ -17,7 +17,7 @@ export const stateMember = {
   "union_membership_status_id": 1,
   "employ_date": "",
   "social_security_number": "",
-  "email": "",
+  "email": "pedro@gmail.com",
   "birth_date": "",
   "iaff_member_number": "",
   "join_date": "",

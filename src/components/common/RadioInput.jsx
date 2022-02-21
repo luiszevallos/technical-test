@@ -9,13 +9,13 @@ export default function RadioInput(props) {
   return (
     <div>
       <Input
-        id={id}
+        id={`${id}`}
         type="radio"
         name={name}
-        value={values[name]}
+        checked={values[name] === id}
         onChange={({target}) => setFieldValue(name, id)}
       />
-      <label for={id}>{label}</label>
+      <label for={`${id}`}>{label}</label>
     </div>
   )
 }

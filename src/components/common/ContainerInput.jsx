@@ -17,7 +17,7 @@ const Contain = styled.div`
 `
 
 const Label = styled.label`
-  color: #0072E5;
+  color: #080E57;
   margin: 5px 0;
   font-size: .9em;
   text-transform: capitalize;

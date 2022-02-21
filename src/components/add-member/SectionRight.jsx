@@ -96,7 +96,7 @@ export default function SectionRight(props) {
       </ContainerInput>
       <GroupInput>
         <ButtonPrimary onClick={formik.handleSubmit} label="Create" />
-        <ButtonClose onClick={formik.handleSubmit} label="Close" />
+        <ButtonClose onClick={formik.resetForm} label="Close" />
       </GroupInput>
     </Section>
   )
@@ -110,4 +110,7 @@ const GroupInput = styled.div`
   display: grid;
   grid-gap: 10px;
   grid-template-columns: 1fr 1fr;
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
+  }
 `

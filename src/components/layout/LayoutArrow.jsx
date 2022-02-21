@@ -9,9 +9,9 @@ export default function layoutArrow(props) {
     <Main>
       <Header>
         <DivButton onClick={onClick}>
-          <ArrowBackIcon sx={{ color: "#d4d4d4", fontSize: 30 }} />
+          <ArrowBackIcon sx={{ color: "#080E57", fontSize: 30 }} />
         </DivButton>
-        <div>{title}</div>
+        <Span>{title}</Span>
       </Header>
       {children}
     </Main>
@@ -32,4 +32,8 @@ const Header = styled.header`
 const DivButton = styled.div`
   margin: 5px 10px;
   cursor: pointer;
+`
+const Span = styled.span`
+  color: #080E57;
+  font-weight: bold;
 `

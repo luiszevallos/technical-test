@@ -14,6 +14,7 @@ import Loading from '../components/common/Loading'
 
 export default function AddMemberScreen() {
   const [loading, setLoading] = useState(false)
+  const [message, setMessage] = useState(undefined)
   const [data, setData] = useState({
     titles: [],
     gender: [],
@@ -66,9 +67,10 @@ export default function AddMemberScreen() {
     try {
       setLoading(true)
       const response = await postRequest('/member', formData, token)
-      console.log(response)
+      setMessage(response.message)
+      formik.resetForm()
     } catch (error) {
-      console.error(error)
+      setMessage(error.message)
     } finally {
       setLoading(false)
     }
@@ -85,25 +87,41 @@ export default function AddMemberScreen() {
     <LayoutArrow title='Add Member' onClick={goSignIn} >
       {loading && <Loading />}
       <DivContain>
-        <SectionLeft formik={formik} data={data} />
-        <SectionRight formik={formik} data={data} />
+        {message && <Span>{message}</Span>}
+        <Div>
+          <SectionLeft formik={formik} data={data} />
+          <SectionRight formik={formik} data={data} />
+        </Div>
       </DivContain>
     </LayoutArrow>
   )
 }
 
 const DivContain = styled.div`
-  width: 100%;
-  overflow: auto;
-  padding: 10px 0px;
-  display: grid;
   max-width: 1024px;
   margin: 10px auto;
   border-radius: 5px;
+  padding: 10px 0px;
   background-color: #ffffff;
+  width: 100%;
+  display: grid;
+  @media (max-width: 950px) {
+    max-width: 600px;
+  }
+`
+const Span = styled.span`
+  text-align: center;
+  color: #86EA2C;
+  font-size: .9em;
+`
+const Div = styled.div`
+  display: grid;
+  overflow: auto;
+  height: 90vh;
   grid-template-columns: 1fr 1fr;
   @media (max-width: 950px) {
+    width: 100%;
+    margin: 0 auto;
     grid-template-columns: 1fr;
-    max-width: 600px;
   }
 `

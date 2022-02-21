@@ -20,7 +20,7 @@ export default function LoginScreen() {
 
   const formik = useFormik({
     initialValues: {
-      email: 'developer@ceawebsystems.com', password: 'uniontracking',
+      email: '', password: '',
     },
     validationSchema: yup.object({
       email: yup.string().required(),
@@ -81,6 +81,9 @@ const DivContain = styled.div`
   max-width: 320px;
   padding: 30px 20px;
   background-color: #ffffff;
+  @media (max-width: 950px) {
+    width: calc(90% - 40px);
+  }
 `
 
 const Form = styled.form`
